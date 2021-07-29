@@ -2,7 +2,7 @@
   <arg name="model" default="$(find panthera_description)/urdf/panthera.urdf"/>
   <arg name="x_pos" default="0.0"/>
   <arg name="y_pos" default="0.0"/>
-  <arg name="z_pos" default="0.0"/>
+  <arg name="z_pos" default="0.4"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find panthera_gazebo)/worlds/empty.world"/>
@@ -14,11 +14,11 @@
   </include>
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <!-- <rosparam file="$(find panthera_gazebo)/config/controller.yaml" command="load"/> -->
+  <rosparam file="$(find panthera_gazebo)/config/controller.yaml" command="load"/>
 
   <!-- load the controllers -->
-  <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" args="joint_state_controller four_wheel_steering_controller"/> -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" args="joint_state_controller panthera_controller"/>
 
   <!-- convert joint states to TF transforms for rviz -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
