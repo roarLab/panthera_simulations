@@ -12,14 +12,13 @@ panthera_controller:
   publish_rate: 50
   pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
   twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.03]
-  cmd_vel_timeout: 25.0 # not tested here
-
+  cmd_vel_timeout: 0.5
   wheel_radius : 0.1
-  track_width : 0.7
+  track_width : 0.7 # distance between left and right wheels (in fully compressed state)
   wheel_base : 1.308
-
-  # Base frame_id
-  base_frame_id: base_link
+  base_frame_id: base_footprint
+  odom_frame_id: odom
+  state_frame_id: state # n-dimensional state of the reconfigurable robot
 
   # Odometry fused with IMU is published by robot_localization, so
   # no need to publish a TF based on encoders alone.

@@ -1,13 +1,12 @@
 ![](assets/img0.png)
 # Panthera Gazebo Simulation
 
-ROS packages for simulating Panthera robot in a city-like environment using Gazebo Simulator.
-
-> Currently in the process of developing the controllers for panthera (cannot control the robot in a simulator yet)
+ROS packages for simulating Panthera robot in a city-like environment using Gazebo Simulator. ROS controller for Panthera can be found in this [repository](https://github.com/roarLab/panthera_controller).
 
 ## Dependencies
 
 - ROS noetic (tested), although other ros-distros might also work
+- [panthera_controller](https://github.com/roarLab/panthera_controller)
 
 ## Build from source
 
