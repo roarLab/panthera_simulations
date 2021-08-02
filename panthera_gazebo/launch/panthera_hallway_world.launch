@@ -1,15 +1,13 @@
 <launch>
 
-  <arg name="model" default="$(find panthera_description)/urdf/panthera.urdf"/>
-  <!-- <arg name="model" default="$(find panthera_description)/urdf/panthera_with_2d_laser.urdf"/> -->
-  <!-- <arg name="model" default="$(find panthera_description)/urdf/panthera_with_velodyne.urdf"/> -->
-
-  <arg name="x_pos" default="0.0"/>
-  <arg name="y_pos" default="0.0"/>
+  <arg name="model" default="$(find panthera_description)/urdf/panthera_with_velodyne.urdf"/>
+  <arg name="x_pos" default="-8.0"/>
+  <arg name="y_pos" default="-4.0"/>
   <arg name="z_pos" default="0.4"/>
 
+  <!-- launch gazebo world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find panthera_gazebo)/worlds/empty.world"/>
+    <arg name="world_name" value="$(find panthera_gazebo)/worlds/hallway.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
@@ -35,5 +33,11 @@
 
   <!-- spawn panthera model in gazebo -->
   <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model panthera -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+
+  <!-- rviz configuration path -->
+  <arg name="rvizconfig" default="$(find panthera_gazebo)/rviz/rviz_display_hallway.rviz" />
+
+  <!-- rivz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
 
 </launch>

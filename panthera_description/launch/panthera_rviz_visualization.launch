@@ -5,6 +5,8 @@
 
   <!-- urdf path -->
   <arg name="model" default="$(find panthera_description)/urdf/panthera.urdf"/>
+  <!-- <arg name="model" default="$(find panthera_description)/urdf/panthera_with_2d_laser.urdf"/> -->
+  <!-- <arg name="model" default="$(find panthera_description)/urdf/panthera_with_velodyne.urdf"/> -->
 
   <!-- rviz configuration path -->
   <arg name="rvizconfig" default="$(find panthera_description)/rviz/rviz_display.rviz" />

@@ -1,12 +1,14 @@
-![](assets/img0.png)
+![](assets/img1.png)
 # Panthera Gazebo Simulation
 
-ROS packages for simulating Panthera robot in a city-like environment using Gazebo Simulator. ROS controller for Panthera can be found in this [repository](https://github.com/roarLab/panthera_controller).
+ROS packages for simulating Panthera robot using Gazebo Simulator. We provides several environment worlds to test the robot. ROS controller for Panthera can be found in this [repository](https://github.com/roarLab/panthera_controller).
 
 ## Dependencies
 
-- ROS noetic (tested), although other ros-distros might also work
+Make sure you have ROS noetic installed, although other ros-distros might also work. This simualtion package also relies on the following external packages, so make sure you have installed everything from source before building this package.
+
 - [panthera_controller](https://github.com/roarLab/panthera_controller)
+- [velodyne_simulator](https://bitbucket.org/DataspeedInc/velodyne_simulator/src/master/)
 
 ## Build from source
 
@@ -17,14 +19,6 @@ cd ..
 catkin_make
 ```
 
-## Running rviz visualization only
-
-```
-cd <ros1_ws>
-source devel/setup.bash
-roslaunch panthera_description panthera_rviz_visualization.launch
-```
-
 ## Simulate panthera in empty world
 
 ```
@@ -33,7 +27,15 @@ source devel/setup.bash
 roslaunch panthera_gazebo panthera_empty_world.launch
 ```
 
-## Simulate panthera in town/city world
+## Simulate panthera in hallway-like environment
+
+```
+cd <ros1_ws>
+source devel/setup.bash
+roslaunch panthera_gazebo panthera_hallway_world.launch
+```
+
+## Simulate panthera in town/city world (Not tested yet)
 
 ```
 cd <ros1_ws>

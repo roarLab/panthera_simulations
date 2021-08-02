@@ -1,0 +1,573 @@
+<?xml version="1.0" ?>
+<robot name="panthera" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="gray">
+    <color rgba="0.5 0.5 0.5 1"/>
+  </material>
+
+  <!-- links -->
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.010" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_link">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <box size="0.20597 0.216606 0.169247"/>
+        </geometry>
+        <material name="gray"/>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+            <box size="0.20597 0.216606 0.169247"/>
+        </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="base_left">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/base_left.stl"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/base_left.stl"/>
+      </geometry>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0.35 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="base_left_cover">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/base_left_cover.dae"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/base_left_cover.dae"/>
+      </geometry>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="base_right">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/base_right.stl"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/base_right.stl"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 -0.35 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="base_right_cover">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/base_right_cover.dae"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/base_right_cover.dae"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="fl_steering_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/wheel_holder_front_left.stl"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/wheel_holder_front_left.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="fr_steering_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/wheel_holder_front_right.stl"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/wheel_holder_front_right.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="rl_steering_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/wheel_holder_rear_left.stl"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/wheel_holder_rear_left.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="rr_steering_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/wheel_holder_rear_right.stl"/>
+      </geometry>
+      <material name="gray"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/wheel_holder_rear_right.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="fl_wheel_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/l_wheel.stl"/>
+      </geometry>
+      <material name="black"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/l_wheel.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="rl_wheel_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/l_wheel.stl"/>
+      </geometry>
+      <material name="black"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/l_wheel.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="fr_wheel_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/r_wheel.stl"/>
+      </geometry>
+      <material name="black"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/r_wheel.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <link name="rr_wheel_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/r_wheel.stl"/>
+      </geometry>
+      <material name="black"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://panthera_description/meshes/r_wheel.stl"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.166667" ixy="0.000000" ixz="0.000000" iyy="0.166667" iyz="0.000000" izz="0.166667"/>
+    </inertial>
+  </link>
+
+  <!-- joints -->
+  <joint name="base_left_joint" type="prismatic">
+    <axis xyz="0 1 0"/>
+    <limit effort="10.0" lower="0" upper="0.25" velocity="0.1"/>
+    <parent link="base_link"/>
+    <child link="base_left"/>
+    <origin xyz="0 0.35 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="base_left_cover_joint" type="fixed">
+    <parent link="base_left"/>
+    <child link="base_left_cover"/>
+    <origin xyz="0 0.15 -0.1" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="base_right_joint" type="prismatic">
+    <axis xyz="0 1 0"/>
+    <limit effort="10.0" lower="-0.25" upper="0" velocity="0.1"/>
+    <parent link="base_link"/>
+    <child link="base_right"/>
+    <origin xyz="0 -0.35 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="base_right_cover_joint" type="fixed">
+    <parent link="base_right"/>
+    <child link="base_right_cover"/>
+    <origin xyz="0 -0.15 -0.1" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="fl_steering_link_joint" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.571" upper="1.571" velocity="0.5"/>
+    <origin xyz="0.654 0.0 0.05" rpy="0 0 0"/>
+    <parent link="base_left"/>
+    <child link="fl_steering_link"/>
+  </joint>
+
+  <joint name="fr_steering_link_joint" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.571" upper="1.571" velocity="0.5"/>
+    <origin xyz="0.654 0.0 0.05" rpy="0 0 0"/>
+    <parent link="base_right"/>
+    <child link="fr_steering_link"/>
+  </joint>
+
+  <joint name="rl_steering_link_joint" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.571" upper="1.571" velocity="0.5"/>
+    <origin xyz="-0.654 0.0 0.05" rpy="0 0 0"/>
+    <parent link="base_left"/>
+    <child link="rl_steering_link"/>
+  </joint>
+
+  <joint name="rr_steering_link_joint" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.571" upper="1.571" velocity="0.5"/>
+    <origin xyz="-0.654 0.0 0.05" rpy="0 0 0"/>
+    <parent link="base_right"/>
+    <child link="rr_steering_link"/>
+  </joint>
+
+  <joint name="fl_wheel_link_joint" type="continuous">
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0 -0.29" rpy="0 0 0"/>
+    <parent link="fl_steering_link"/>
+    <child link="fl_wheel_link"/>
+  </joint>
+
+  <joint name="rl_wheel_link_joint" type="continuous">
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0 -0.29" rpy="0 0 0"/>
+    <parent link="rl_steering_link"/>
+    <child link="rl_wheel_link"/>
+  </joint>
+
+  <joint name="fr_wheel_link_joint" type="continuous">
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0 -0.29" rpy="0 0 0"/>
+    <parent link="fr_steering_link"/>
+    <child link="fr_wheel_link"/>
+  </joint>
+
+  <joint name="rr_wheel_link_joint" type="continuous">
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0 -0.29" rpy="0 0 0"/>
+    <parent link="rr_steering_link"/>
+    <child link="rr_wheel_link"/>
+  </joint>
+
+  <!-- gazebo related -->
+
+  <!-- materials -->
+  <gazebo reference="base_left">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="base_right">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="fl_steering_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="fr_steering_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="rl_steering_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="rr_steering_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="fl_wheel_link">
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
+    <kp  value="1000000.0" />
+    <kd  value="1.0" />
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="fr_wheel_link">
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
+    <kp  value="1000000.0" />
+    <kd  value="1.0" />
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="rl_wheel_link">
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
+    <kp  value="1000000.0" />
+    <kd  value="1.0" />
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="rr_wheel_link">
+    <mu1 value="0.01" />
+    <mu2 value="0.01" />
+    <kp  value="1000000.0" />
+    <kd  value="1.0" />
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- vlp-16 with lower sample size -->
+  <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+  <xacro:VLP-16 parent="base_link" name="velodyne" topic="/velodyne_points" organize_cloud="false" hz="10" samples="440" gpu="false">
+    <origin xyz="0 0 1.03" rpy="0 0 0" />
+  </xacro:VLP-16>
+
+  <!-- controllers -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <transmission name="base_left_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="base_left_joint_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="base_left_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="base_right_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="base_right_joint_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="base_right_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="fl_steering_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="fl_steering_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="fl_steering_link_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="fr_steering_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="fr_steering_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="fr_steering_link_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="rl_steering_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="rl_steering_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="rl_steering_link_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="rr_steering_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="rr_steering_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="rr_steering_link_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="fl_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="fl_wheel_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="fl_wheel_link_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="fr_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="fr_wheel_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="fr_wheel_link_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="rl_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="rl_wheel_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="rl_wheel_link_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+  <transmission name="rr_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="rr_wheel_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="rr_wheel_link_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+
+</robot>
