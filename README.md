@@ -9,7 +9,6 @@ Make sure you have ROS noetic installed, although other ros-distros might also w
 
 - [panthera_msgs](https://github.com/roarLab/panthera_msgs)
 - [panthera_controller](https://github.com/roarLab/panthera_controller)
-- [velodyne_simulator](https://bitbucket.org/DataspeedInc/velodyne_simulator/src/master/)
 
 ## Build from source
 
