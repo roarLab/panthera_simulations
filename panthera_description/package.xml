@@ -10,4 +10,5 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>urdf</depend>
+  <depend>velodyne_simulator</depend>
 </package>
