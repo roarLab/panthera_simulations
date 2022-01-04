@@ -7,6 +7,7 @@ ROS packages for simulating Panthera robot using Gazebo Simulator. We provides s
 
 Make sure you have ROS noetic installed, although other ros-distros might also work. This simualtion package also relies on the following external packages, so make sure you have installed everything from source before building this package.
 
+- [panthera_msgs](https://github.com/roarLab/panthera_msgs)
 - [panthera_controller](https://github.com/roarLab/panthera_controller)
 - [velodyne_simulator](https://bitbucket.org/DataspeedInc/velodyne_simulator/src/master/)
 
@@ -16,6 +17,7 @@ Make sure you have ROS noetic installed, although other ros-distros might also w
 cd <ros1_ws>/src
 git clone https://github.com/roarLab/panthera_simulations
 cd ..
+rosdep install -y --from-paths src --ignore-src --rosdistro <YOUR_ROS_DISTRO>
 catkin_make
 ```
 
