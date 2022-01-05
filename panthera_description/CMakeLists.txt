@@ -3,7 +3,6 @@ project(panthera_description)
 
 find_package(catkin REQUIRED COMPONENTS
   urdf
-  velodyne_simulator
 )
 
 catkin_package(
